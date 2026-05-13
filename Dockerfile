@@ -4,8 +4,10 @@ WORKDIR /app
 
 ENV PYTHONDONTWRITEBYTECODE=1
 ENV PYTHONUNBUFFERED=1
-ENV TQIP_DB_PATH=/app/data/trial_quality_v4.db
+ENV TQIP_DB_PATH=/app/data/trial_quality_v8.db
 ENV TQIP_UPLOAD_DIR=/app/uploads
+ENV TQIP_TEMPLATE_DIR=/app/template_uploads
+ENV TQIP_RENDERED_DIR=/app/rendered_outputs
 
 RUN apt-get update && apt-get install -y --no-install-recommends \
     build-essential \
@@ -16,8 +18,8 @@ RUN pip install --no-cache-dir -r requirements.txt
 
 COPY . .
 
-RUN mkdir -p /app/data /app/uploads
+RUN mkdir -p /app/data /app/uploads /app/template_uploads /app/rendered_outputs
 
 EXPOSE 8501
 
-CMD ["streamlit", "run", "app_v4.py", "--server.port=8501", "--server.address=0.0.0.0"]
+CMD ["streamlit", "run", "app_v8.py", "--server.port=8501", "--server.address=0.0.0.0"]
