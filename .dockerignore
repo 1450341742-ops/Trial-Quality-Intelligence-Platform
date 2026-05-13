@@ -1,0 +1,13 @@
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+.env
+.venv/
+venv/
+trial_quality*.db
+data/
+uploads/
+.streamlit/secrets.toml
+.git/
